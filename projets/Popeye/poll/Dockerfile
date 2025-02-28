@@ -1,0 +1,10 @@
+FROM python:3
+WORKDIR /app
+COPY requirements.txt ./
+COPY app.py ./
+COPY wsgi.py ./
+COPY static ./static
+COPY templates ./templates
+RUN pip3 install -r requirements.txt
+EXPOSE 80
+CMD ["flask", "run", "--host=0.0.0.0", "--port=80"]
