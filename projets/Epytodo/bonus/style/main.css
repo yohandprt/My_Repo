@@ -1,0 +1,91 @@
+`
+/* initialisation */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --primaryColor: 51, 51, 51;
+    --secondColor: rgb(244, 244, 244);
+}
+
+/* style global de la page */
+body {
+    background: var(--secondColor);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+}
+
+/* boîte blanche centrale */
+.todo-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+/* titre centré */
+h1 {
+    text-align: center;
+}
+
+/* formulaire : champ et bouton alignés en ligne */
+form {
+    display: flex;
+    gap: .5rem; /* espace entre l'input et le bouton */
+    margin-bottom: 1rem;
+}
+
+/* champ de saisie */
+input {
+    flex: 1; /* prend tout l'espace restant */
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+/* bouton d'ajout */
+button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+/* liste sans puces */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* chaque tâche */
+li {
+    background: rgb(238, 238, 238);
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* tâche cochée */
+li.done {
+    text-decoration: line-through;
+    color: rgb(128, 128, 128);
+    cursor: pointer;
+}
+
+/* bouton de suppression : petite croix rouge */
+li button {
+    background: transparent;
+    border: none;
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+    font-size: 1rem;
+}
