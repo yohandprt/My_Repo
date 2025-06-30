@@ -1,2 +1,0 @@
-sudo chown root:root $1
-sudo chmod u+s $1

@@ -1,4 +1,0 @@
-cp -r ~/my_scripts/lib/ .
-cp -r ~/my_scripts/include/ .
-cp -r ~/my_scripts/Makefile .
-cp -r ~/my_scripts/exclude .git/info/
