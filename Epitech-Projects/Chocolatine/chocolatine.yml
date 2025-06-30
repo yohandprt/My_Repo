@@ -1,0 +1,104 @@
+name: Chocolatine
+
+on:
+    push:
+        branches-ignore:
+            - "ga-ignore-**"
+    pull_request:
+        branches-ignore:
+            - "go-ignore-**"
+
+env:
+    MIRROR_URL: 'git@github.com:EpitechPGEPromo2029/B-DOP-200-LIL-2-1-chocolatine-yohan.dupret.git'
+    CURRENT_URL: 'git@github.com:${{ github.repository }}.git'
+    EXECUTABLES: ${{ vars.EXECUTABLES }}
+
+jobs:
+    check_repository:
+        runs-on: ubuntu-latest
+        steps:
+            - name: check if repo is equal to the mirror
+              id: check_if_mirror
+              run: |
+                if [[ "${{ env.CURRENT_URL }}" == "${{ env.MIRROR_URL }}" ]]; then
+                    echo "Mirror repository is the same as the current repository"
+                    exit 1
+                fi
+
+    check_coding_style:
+        needs: check_repository
+        if: success()
+        runs-on: ubuntu-latest
+        outputs:
+            error_coding_style: ${{ steps.coding-style.outputs.error_coding_style }}
+        container:
+            image: ghcr.io/epitech/coding-style-checker:latest
+        steps:
+            - name: checkout repo
+              uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+            - name: verif coding style
+              id: coding-style
+              run: |
+                check.sh $(pwd) $(pwd)
+                cat coding-style-reports.log
+                if [ -s coding-style-reports.log ]; then
+                  exit 1
+                fi
+
+    check_program_compilation:
+        needs: check_repository
+        if: success()
+        runs-on: ubuntu-latest
+        container:
+            image: epitechcontent/epitest-docker
+        steps:
+            - name: checkout repo
+              uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+            - name: run make
+              timeout-minutes: 2
+              run: make
+            - name: run make clean
+              run: make clean
+            - name: is executable
+              shell: bash
+              run: |
+                IFS=',' read -ra fichiers <<< ${{ env.EXECUTABLES }}
+                for fichier in "${fichiers[@]}"; do
+                  if [[ ! -x "$fichier" ]]; then
+                      exit 1
+                  fi
+                done
+
+    run_tests:
+        needs: check_program_compilation
+        if: success()
+        runs-on: ubuntu-latest
+        container:
+            image: epitechcontent/epitest-docker
+        steps:
+            - name: checkout repository
+              uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+            - name: run tests 
+              timeout-minutes: 2
+              run: make tests_run
+    
+    push_to_mirror:
+        needs: run_tests
+        if: success() && github.event_name == 'push'
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout repository
+              uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+            - name: Push to mirror repository
+              uses: pixta-dev/repository-mirroring-action@v1
+              with:
+                target_repo_url: ${{ env.MIRROR_URL }}
+                ssh_private_key: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
