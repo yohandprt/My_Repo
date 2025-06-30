@@ -55,9 +55,9 @@ SECRET=your_jwt_secret
 
 The `epytodo.sql` file contains the database schema, with two tables:
 
-    user
+- user
 
-    todo
+- todo
 
 You can import it with the following command:
 

@@ -66,9 +66,9 @@ $> false || echo "Previous command failed"
 This project was created as part of the Epitech curriculum to understand how a shell works internally — from parsing input to handling system calls and process management.
 
 
-## Author
-- Made with ❤️ by [@llosts](https://github.com/llosts)
-- Made with ❤️ by [@ThomasVillot](https://github.com/ThomasVillot)
-- Made with ❤️ by [@FloWindels](https://github.com/FloWindels)
-- Made with ❤️ by [@yohandprt](https://github.com/yohandprt)
-- Made with ❤️ by [@BaptisteVanBunderen](https://github.com/BaptisteVanBunderen)
+## Authors
+- [@llosts](https://github.com/llosts)
+- [@ThomasVillot](https://github.com/ThomasVillot)
+- [@FloWindels](https://github.com/FloWindels)
+- [@yohandprt](https://github.com/yohandprt)
+- [@BaptisteVanBunderen](https://github.com/BaptisteVanBunderen)
