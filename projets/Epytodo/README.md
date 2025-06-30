@@ -1,8 +1,8 @@
 # EpyTodo
 
-EpyTodo est une API RESTful construite avec Node.js et MySQL, permettant de gérer des tâches pour différents utilisateurs. Elle propose des fonctionnalités d'enregistrement, d'authentification, de gestion des utilisateurs et de leurs tâches.
+EpyTodo is a RESTful API built with Node.js and MySQL, designed to manage tasks for different users. It provides features for user registration, authentication, user management, and task management.
 
-## 🛠️ Technologies utilisées
+## Technologies Used
 
 - Node.js
 - Express
@@ -12,7 +12,7 @@ EpyTodo est une API RESTful construite avec Node.js et MySQL, permettant de gér
 - dotenv
 - mysql2
 
-## 📁 Structure du projet
+## Project Structure
 
 ```bash
 .
@@ -20,27 +20,27 @@ EpyTodo est une API RESTful construite avec Node.js et MySQL, permettant de gér
 ├── package.json
 ├── epytodo.sql
 └── src
-├── config
-│ └── db.js
-├── index.js
-├── middleware
-│ ├── auth.js
-│ └── notFound.js
-└── routes
-├── auth
-│ └── auth.js
-├── todos
-│ ├── todos.js
-│ └── todos.query.js
-└── user
-├── user.js
-└── user.query.js
+    ├── config
+    │   └── db.js
+    ├── index.js
+    ├── middleware
+    │   ├── auth.js
+    │   └── notFound.js
+    └── routes
+        ├── auth
+        │   └── auth.js
+        ├── todos
+        │   ├── todos.js
+        │   └── todos.query.js
+        └── user
+            ├── user.js
+            └── user.query.js
 ```
 
 
-## ⚙️ Configuration
+## Configuration
 
-Crée un fichier `.env` à la racine du projet avec les variables suivantes :
+Create a `.env` file at the root of the project with the following variables:
 
 ```env
 MYSQL_DATABASE=epytodo
@@ -51,77 +51,77 @@ PORT=3000
 SECRET=your_jwt_secret
 ```
 
-## 🧱 Base de données
+## Database
 
-Le fichier epytodo.sql contient le schéma de la base de données, avec deux tables :
+The `epytodo.sql` file contains the database schema, with two tables:
 
     user
 
     todo
 
-On peut l'importer avec la commande suivante :
+You can import it with the following command:
 
 ```bash
 cat epytodo.sql | mysql -u root -p
 ```
 
-## 🔐 Authentification
+## Authentication
 
-Les routes protégées nécessitent un JSON Web Token dans l’en-tête Authorization. Le token peut être obtenu via les routes /register ou /login.
-## Authentification
-| Méthode |	Route | Description
+Protected routes require a JSON Web Token (JWT) in the Authorization header. Tokens can be obtained via the `/register` or `/login` routes.
+## Auth Routes
+| Method |	Route | Description
 |:------- |:-----:| ----------:|
-| POST | /register | Enregistrer un utilisateur
-| POST | /login | Se connecter
-## Utilisateurs
-| Méthode | Route | Description
+ POST | /register | Register a new user
+ POST | /login | Log in a user
+## User Routes
+| Method | Route | Description
 |:------- |:-----:| ----------:|
-GET	| /user	| Récupérer ses infos
-GET	| /user/todos	| Récupérer ses tâches
-GET	| /users/:id/email |	Infos d’un utilisateur
-PUT |	/users/:id	| Mettre à jour un utilisateur
-DELETE |	/users/:id	| Supprimer un utilisateur
-## Todos
-Méthode |	Route |	Description
+GET	| /user	| Get current user information
+GET	| /user/todos	| Get current user's todos
+GET	| /users/:id/email |	Get user information by ID/email
+PUT |	/users/:id	| Update a user
+DELETE |	/users/:id	| Delete a user
+## Todo Routes
+| Method |	Route |	Description
 |:------- |:-----:| ----------:|
-GET |	/todos |	Récupérer toutes les tâches
-GET	| /todos/:id |	Récupérer une tâche
-POST |	/todos	| Créer une tâche
-PUT	| /todos/:id |	Mettre à jour une tâche
-DELETE |	/todos/:id |	Supprimer une tâche
-## ✅ Exécution du projet
+GET |	/todos |	Get all todos
+GET	| /todos/:id |	Get a specific todo
+POST |	/todos	| Create a new todo
+PUT	| /todos/:id |	Update a todo
+DELETE |	/todos/:id |	Delete a todo
+## Running the Project
 ## Installation
 
 ```bash
 npm install
 ```
 
-## Lancement
+## Start
 
 ```bash
 npm start
 ```
 
-Le serveur sera accessible sur http://localhost:3000.
-## ✅ Bonnes pratiques
+The server will be available at: http://localhost:3000.
+## Best Practices
 
-- Respect de l'architecture recommandée
+- Follow the recommended project architecture
 
-- Utilisation de middlewares pour l'authentification et la gestion des erreurs
+- Use middleware for authentication and error handling
 
-- Hashage sécurisé des mots de passe
+- Securely hash passwords
 
-- Gestion cohérente des erreurs avec des messages clairs et codes HTTP appropriés
+- Handle errors consistently with clear messages and proper HTTP codes
 
-## 📌 Remarques
+## Notes
 
-- Le dossier node_modules doit être ignoré grâce à .gitignore
+- The `node_modules` folder must be ignored using `.gitignore`
 
-- Aucune insertion de données ne doit figurer dans epytodo.sql
+- No data should be inserted in the `epytodo.sql` file
 
-- Toutes les réponses de l’API sont au format JSON
+- All API responses are in JSON format
 
-## 🙋‍♀️ Auteurs
+## Authors
 - [@llosts](https://github.com/llosts)
 - [@yohandprt](https://github.com/yohandprt)
 - [@Alexandre2806](https://github.com/Alexandre2806)
