@@ -1,4 +1,4 @@
-# 🐚 42sh
+# 42sh
 
 > "This isn’t just running commands. This is taming the terminal—with flair!"  
 
@@ -6,7 +6,7 @@ On this projet with the base of our `Minishell 2`, the goal is to recreat our sh
 
 ---
 
-## ✨ Features
+## Features
 
 - 🔧 Built-in and external commands 
   - Run standard shell commands or your own built-ins:
@@ -31,12 +31,12 @@ Combine commands with:
   - `"..."` – interpolate variables
   - `(...)` – group commands
   Example: (cd src && make)
-- 💥 Error handling
+- Error handling
 Proper handling of invalid commands, syntax errors, and return codes.
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 1. Clone the repository:
    ```bash
@@ -52,7 +52,7 @@ Proper handling of invalid commands, syntax errors, and return codes.
     ./42sh
     ```
 
-## 🧪 Example Usage
+## Example Usage
 
 ```bash
 $> ls -l ; echo "Build complete"
@@ -62,11 +62,11 @@ $> ./42sh && echo "Shell started"
 $> false || echo "Previous command failed"
 ```
 
-## 💡 Why?
+## Why?
 This project was created as part of the Epitech curriculum to understand how a shell works internally — from parsing input to handling system calls and process management.
 
 
-## 🙋‍♀️ Author
+## Author
 - Made with ❤️ by [@llosts](https://github.com/llosts)
 - Made with ❤️ by [@ThomasVillot](https://github.com/ThomasVillot)
 - Made with ❤️ by [@FloWindels](https://github.com/FloWindels)
