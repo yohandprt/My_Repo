@@ -12,21 +12,16 @@ The project is complemented by a **Streamlit interface**, allowing users to simu
 
 ## Installation
 
-1. Clone the repository:
-   ```bash
-   git clone git@github.com:EpitechPGEPromo2029/G-AIA-210-LIL-2-1-tardis-thomas.villot.git
-   cd G-AIA-210-LIL-2-1-tardis-thomas.villot
-   ```
-2. Install the required libraries:
+1. Install the required libraries:
     ```bash
     pip install -r requirements.txt
     ```
-3. Launch `tardis_eda.ipynb`:
+2. Launch `tardis_eda.ipynb`:
     - Prepare a `dataset.csv` file with raw train data.
     - Run the `tardis_eda.ipynb` notebook in your Python environment.
     - It will export a cleaned dataset named `cleaned_dataset.csv`.
 
-4. Launch the web app:
+3. Launch the web app:
     ```bash
     streamlit run tardis_dashboard.py
     ```
