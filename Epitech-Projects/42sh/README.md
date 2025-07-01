@@ -38,16 +38,11 @@ Proper handling of invalid commands, syntax errors, and return codes.
 
 ## Installation
 
-1. Clone the repository:
-   ```bash
-   git clone git@github.com:EpitechPGEPromo2029/B-PSU-200-LIL-2-1-42sh-thomas.villot.git
-   cd B-PSU-200-LIL-2-1-42sh-thomas.villot
-   ```
-2. Compile the project:
+1. Compile the project:
     ```bash
     make
     ```
-3. Run the shell:
+2. Run the shell:
     ```bash
     ./42sh
     ```
